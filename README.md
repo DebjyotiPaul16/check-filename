@@ -1,4 +1,4 @@
-#check-filename
+#check-filename [![Build Status](https://travis-ci.org/raks437/check-filename.svg?branch=master)](https://travis-ci.org/raks437/check-filename)
 
 CLI tool to check filename convention for a project.
 
