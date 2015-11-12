@@ -7,7 +7,7 @@
     "check-filename": "bin/main.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm install && npm link && jasmine"
   },
   "keywords": [
     "filename",
@@ -22,5 +22,8 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.9.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.2"
   }
 }
