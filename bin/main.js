@@ -1,4 +1,7 @@
 #! /usr/bin/env node
+
+/* global __dirname */
+/* global process */
 'use strict';
 
 var fs = require('fs')
@@ -23,8 +26,10 @@ cmd
   .option('-p, --path <folder path>', 'Folder path to run a filename check', './')
   .parse(process.argv);
 
-
-
+var checkFilename = module.exports = function(){
+	
+	return this;
+}
 //debug notes
 console.log("Default args:-")
 if(cmd.customRegex){
