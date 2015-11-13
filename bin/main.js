@@ -20,27 +20,34 @@ cmd
   .version(pkg.version)
 	.description(pkg.description)
 	.usage('[--path][--custom-regex][--exclude][--use-gitignore]')
-  .option('-c, --custom-regex', 'Format type to check.', lower_case)
-	.option('-e, --exclude', 'Files or Folder to exclude. ', exclude)
-	.option('-i, --use-gitignore', 'Don\'t use ".gitignore"', true)
-  .option('-p, --path <folder path>', 'Folder path to run a filename check', './')
+  .option('-c, --custom-regex', 'format type to check.', lower_case)
+	.option('-e, --exclude', 'files or Folder to exclude. ', exclude)
+	.option('-i, --use-gitignore', 'don\'t use ".gitignore"', true)
+  .option('-p, --path <folder path>', 'folder path to run a filename check', './')
   .parse(process.argv);
 
 var checkFilename = module.exports = function(){
-	
+
 	return this;
-}
+};
+
+var getPath = function(){
+
+};
+
 //debug notes
 console.log("Default args:-")
+console.log("Current dir:",__dirname);
 if(cmd.customRegex){
 	console.log(cmd.cutomRegex);
+
 }
-if(cmd.exclude){
+else if(cmd.exclude){
 	console.log(cmd.exclude);
 }
-if(cmd.useGitignore){
+else if(cmd.useGitignore){
 	console.log(cmd.useGitignore);
 }
-if(cmd.path){
-	console.log(cmd.path);
+else if(cmd.path){
+	console.log("Path: "+cmd.path);
 }
