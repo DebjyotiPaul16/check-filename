@@ -7,7 +7,7 @@ var fs = require('fs')
 	, cmd = require('commander')
 	,	chalk = require('chalk');
 
-var lower_case = /^[a-z0-9]/
+var lower_case = /^([a-z]+|[^a-z0-9][a-z]+)$/
 	, lower_case_with_hyphen = ''
 	, lower_case_with_underscore = ''
 	, camel_case = ''
