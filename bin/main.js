@@ -53,7 +53,7 @@ var checkFileName = module.exports = {
 				console.log(chalk.blue('Folders:'), chalk.red(checkFileName.Folders.length));
 				console.log(chalk.blue('Files:'), chalk.red(checkFileName.Files.length));
 				console.log("=============");
-			}, 100);
+			}, 500);
 		}
 	}
 };
@@ -71,6 +71,6 @@ if (cmd.useGitignore) {
 }
 if (cmd.path) {
 	console.log("Path: " + cmd.path);
-	checkFileName.readAllFiles(process.cwd());
+	checkFileName.readAllFiles(cmd.path);
 }
 console.log("-------------------- ");
