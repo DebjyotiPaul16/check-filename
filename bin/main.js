@@ -27,9 +27,10 @@ cmd
   .parse(process.argv);
 
 var checkFileName = module.exports = {
-	_this: this,
 	Folders: [],
+
 	Files: [],
+
 	readAllFiles: function (root) {
 		fs.readdir(root, function (error, files) {
 			files.forEach(function (elem, index) {
@@ -42,10 +43,20 @@ var checkFileName = module.exports = {
 				}
 			});
 		});
-		console.log('Folders', checkFileName.Folders.length);
-		console.log('Files', checkFileName.Files.length);
+		checkFileName.displayResults();
 	},
-	readGitIgnore:function(){
+
+	timer:0,
+
+	displayResults: function () {
+		clearTimeout(checkFileName.timer);
+		checkFileName.timer = setTimeout(function () {
+			console.log('Folders:', checkFileName.Folders.length);
+			console.log('Files:', checkFileName.Files.length);
+		}, 100);
+	},
+
+	readGitIgnore: function () {
 
 	}
 };
