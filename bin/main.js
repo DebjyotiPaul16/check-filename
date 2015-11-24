@@ -64,7 +64,7 @@ var checkFileName = module.exports = {
 				console.log(chalk.red('Files (lower case violation):'), chalk.red(checkFileName.files_with_error.length));
 				console.log(chalk.red('Folders (lower case violation):'), chalk.red(checkFileName.folders_with_error.length));
 				console.log("==============================================");
-			}, 500);
+			}, 1000);
 		}
 	},
 
