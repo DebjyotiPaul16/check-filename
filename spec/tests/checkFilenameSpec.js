@@ -21,5 +21,27 @@ describe('Check Filename CLI app ::', function () {
 
 			expect(checkFileName.Files).toEqual([])
 		})
+
+		it('can validate lower case', function () {
+			spyOn(checkFileName, 'isLowerCase').and.callThrough()
+
+			var lowercase = false
+			lowercase = checkFileName.isLowerCase('lowercase')
+
+			expect(checkFileName.isLowerCase).toHaveBeenCalledWith('lowercase')
+			expect(lowercase).toEqual(true)
+
+			lowercase = false
+			lowercase = checkFileName.isLowerCase('.git')
+
+			expect(checkFileName.isLowerCase).toHaveBeenCalledWith('.git')
+			expect(lowercase).toEqual(true)
+
+			lowercase = false
+			lowercase = checkFileName.isLowerCase('lower_case')
+
+			expect(checkFileName.isLowerCase).toHaveBeenCalledWith('lower_case')
+			expect(lowercase).toEqual(false)
+		})
 	})
 })
