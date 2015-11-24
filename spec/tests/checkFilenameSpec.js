@@ -13,13 +13,13 @@ describe('Check Filename CLI app ::', function () {
 		it('has list of folders', function () {
 			expect(checkFileName.Folders).toBeDefined()
 
-			expect(checkFileName.Folders).toBe([]);
+			expect(checkFileName.Folders).toEqual([])
 		})
 
 		it('has list of files', function () {
 			expect(checkFileName.Files).toBeDefined()
 
-			expect(checkFileName.Files).toBe([])
+			expect(checkFileName.Files).toEqual([])
 		})
 	})
 })
