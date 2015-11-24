@@ -1,13 +1,11 @@
 #! /usr/bin/env node
-
-/* global __dirname */
-/* global process */
 'use strict';
 
 var fs = require('fs')
 	, path = require('path')
 	, pkg = require(path.join(__dirname, '../package.json'))
-	, cmd = require('commander');
+	, cmd = require('commander')
+	,	chalk = require('chalk');
 
 var lower_case = ''
 	, lower_case_with_hyphen = ''
@@ -28,15 +26,14 @@ cmd
 
 var checkFileName = module.exports = {
 	Folders: [],
-
 	Files: [],
 
-	readAllFiles: function (root) {
-		fs.readdir(root, function (error, files) {
+	readAllFiles: function (srcPath) {
+		fs.readdir(srcPath, function (error, files) {
 			files.forEach(function (elem, index) {
-				if (fs.lstatSync(path.join(root, elem)).isDirectory()) {
+				if (fs.lstatSync(path.join(srcPath, elem)).isDirectory()) {
 					checkFileName.Folders.push(elem);
-					checkFileName.readAllFiles(path.join(root, elem));
+					checkFileName.readAllFiles(path.join(srcPath, elem));
 				}
 				else {
 					checkFileName.Files.push(elem);
@@ -46,33 +43,34 @@ var checkFileName = module.exports = {
 		checkFileName.displayResults();
 	},
 
-	timer:0,
+	timer: setTimeout(function(){},0),
 
 	displayResults: function () {
-		clearTimeout(checkFileName.timer);
-		checkFileName.timer = setTimeout(function () {
-			console.log('Folders:', checkFileName.Folders.length);
-			console.log('Files:', checkFileName.Files.length);
-		}, 100);
-	},
-
-	readGitIgnore: function () {
-
+		if (checkFileName.timer) {
+			clearTimeout(checkFileName.timer);
+			checkFileName.timer = setTimeout(function () {
+				console.log("=============");
+				console.log(chalk.blue('Folders:'), chalk.red(checkFileName.Folders.length));
+				console.log(chalk.blue('Files:'), chalk.red(checkFileName.Files.length));
+				console.log("=============");
+			}, 100);
+		}
 	}
 };
 
 //debug notes
-console.log("Default args:-----------------------------------------------------------")
+console.log("Default args:\n-------------------- ");
 if (cmd.customRegex) {
-	console.log(cmd.cutomRegex);
+	console.log('Custom Regex:',cmd.customRegex);
 }
-else if (cmd.exclude) {
-	console.log(cmd.exclude);
+if (cmd.exclude) {
+	console.log('Exclude:',cmd.exclude);
 }
-else if (cmd.useGitignore) {
-	console.log(cmd.useGitignore);
+if (cmd.useGitignore) {
+	console.log('Use Gitignore:',cmd.useGitignore);
 }
-else if (cmd.path) {
+if (cmd.path) {
 	console.log("Path: " + cmd.path);
 	checkFileName.readAllFiles(process.cwd());
 }
+console.log("-------------------- ");
