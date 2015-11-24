@@ -56,14 +56,13 @@ var checkFileName = module.exports = {
 		if (checkFileName.timer) {
 			clearTimeout(checkFileName.timer);
 			checkFileName.timer = setTimeout(function () {
-				console.log("==============================================");
+				console.log("====================================");
 				console.log(chalk.blue('Total Folders Scanned:'), chalk.white(checkFileName.Folders.length));
 				console.log(chalk.blue('Total Files Scanned:'), chalk.white(checkFileName.Files.length));
-				console.log("==============================================");
-				console.log(chalk.green('Scan Status:\n'));
-				console.log(chalk.red('Files (lower case violation):'), chalk.red(checkFileName.files_with_error.length));
+				console.log("====================================");
 				console.log(chalk.red('Folders (lower case violation):'), chalk.red(checkFileName.folders_with_error.length));
-				console.log("==============================================");
+				console.log(chalk.red('Files (lower case violation):'), chalk.red(checkFileName.files_with_error.length));
+				console.log("====================================");
 			}, 1000);
 		}
 	},
@@ -74,18 +73,18 @@ var checkFileName = module.exports = {
 };
 
 //debug notes
-console.log("Default args:\n-------------------- ");
+// console.log("Default args:\n--------------------");
 if (cmd.customRegex) {
-	console.log('Custom Regex:',cmd.customRegex);
+	// console.log('Custom Regex:',cmd.customRegex);
 }
 if (cmd.exclude) {
-	console.log('Exclude:',cmd.exclude);
+	// console.log('Exclude:',cmd.exclude);
 }
 if (cmd.useGitignore) {
-	console.log('Use Gitignore:',cmd.useGitignore);
+	// console.log('Use Gitignore:',cmd.useGitignore);
 }
 if (cmd.path) {
-	console.log("Path: " + cmd.path);
+	// console.log("Path: " + cmd.path);
 	checkFileName.readAllFiles(cmd.path);
 }
-console.log("-------------------- ");
+// console.log("--------------------");
