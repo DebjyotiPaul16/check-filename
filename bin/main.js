@@ -7,11 +7,11 @@ var fs = require('fs')
 	, cmd = require('commander')
 	,	chalk = require('chalk');
 
-var lower_case = /[a-z0-9]/
+var lower_case = /^[a-z0-9]/
 	, lower_case_with_hyphen = ''
 	, lower_case_with_underscore = ''
 	, camel_case = ''
-	, upper_case = /[A-Z0-9]/
+	, upper_case = ''
 	, exclude = ['node_modules', 'bower_component', '.git', '.svn', '.hg'];
 
 cmd
