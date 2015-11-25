@@ -5,7 +5,7 @@ var fs = require('fs')
 	, path = require('path')
 	, pkg = require(path.join(__dirname, '../package.json'))
 	, cmd = require('commander')
-	,	chalk = require('chalk');
+	, chalk = require('chalk');
 
 var lower_case = /^([a-z]+|[^a-z0-9][a-z]+)$/
 	, lower_case_with_hyphen = ''
@@ -15,14 +15,14 @@ var lower_case = /^([a-z]+|[^a-z0-9][a-z]+)$/
 	, exclude = ['node_modules', 'bower_component', '.git', '.svn', '.hg'];
 
 cmd
-  	.version(pkg.version)
+	.version(pkg.version)
 	.description(pkg.description)
 	.usage('[--path][--custom-regex][--exclude][--use-gitignore]')
-  	.option('-c, --custom-regex', 'format type to check.', lower_case)
+	.option('-c, --custom-regex', 'format type to check.', lower_case)
 	.option('-i, --use-gitignore', 'don\'t use ".gitignore"', true)
 	.option('-x, --exclude', 'files or Folder to exclude. ', exclude)
-  	.option('-p, --path <folder path>', 'folder path to run a filename check', process.cwd())
-  	.parse(process.argv);
+	.option('-p, --path <folder path>', 'folder path to run a filename check', process.cwd())
+	.parse(process.argv);
 
 var checkFileName = module.exports = {
 	Folders: [],
@@ -50,7 +50,7 @@ var checkFileName = module.exports = {
 		checkFileName.displayResults();
 	},
 
-	timer: setTimeout(function(){},0),
+	timer: setTimeout(function () { }, 0),
 
 	displayResults: function () {
 		if (checkFileName.timer) {
