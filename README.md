@@ -12,7 +12,7 @@ Fork and clone the project and then do `npm install` to install the dependencies
 
 # Suggestion
 
-Please feel free to share your suggestions: [@raks437](https://twitter.com/raks437/)
+Please feel free to share your suggestions directly to [@raks437](https://twitter.com/raks437/) or drop by in [#slack](https://opendogs.slack.com/)
 
 # New to Git
 
