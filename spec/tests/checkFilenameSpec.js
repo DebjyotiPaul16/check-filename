@@ -6,6 +6,10 @@ var checkFileName = require('../../bin/main.js')
 
 describe('Check Filename CLI app ::', function () {
 	describe('checkFilename module', function () {
+		it('is complete',function(){
+			fail("The test coverage is not complete and needs further development")
+		})
+
 		it('exists', function () {
 			expect(checkFileName).toBeDefined()
 		})
