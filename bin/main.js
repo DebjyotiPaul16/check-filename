@@ -13,7 +13,7 @@ var lowerCase = /^([a-z]+|[^a-z0-9][a-z]+)$/
 	, lowerCaseWithUnderscore = ''
 	, camelCase = ''
 	, upperCase = ''
-	, exclude = ['node_modules', 'bower_component', '.git', '.svn', '.hg'];
+	, exclude = '';
 
 cmd
 	.version(pkg.version)
