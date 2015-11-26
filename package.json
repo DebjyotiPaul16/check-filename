@@ -7,7 +7,7 @@
     "check-filename": "bin/main.js"
   },
   "scripts": {
-    "test": "npm install && npm link && jasmine"
+    "test": "jasmine"
   },
   "keywords": [
     "filename",
